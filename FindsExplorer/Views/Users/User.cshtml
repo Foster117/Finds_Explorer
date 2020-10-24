@@ -1,0 +1,51 @@
+﻿@model ApplicationUser;
+@{
+    ViewData["Title"] = Model.UserName;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    bool phoneIsNull = (Model.PhoneNumber == null ? false : true);
+}
+
+<table class="table table-sm">
+    <thead>
+        <tr>
+            <th>Имя</th>
+            <th>Телефон</th>
+            <th>Откуда</th>
+            <th>Дата регистрации</th>
+            <th>О пользователе</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@Model.UserName</td>
+            <td>@if (Model.PhoneNumber != null)
+                {<span>@Model.PhoneNumber</span>}
+            else
+            {<span class="dis">Не указан</span>}
+        </td>
+        <td>@if (Model.Location != null)
+            {<span>@Model.Location</span>}
+        else
+        {<span class="dis">Не указано</span>}
+    </td>
+        <td>@Model.RegistrationDate.Day.ToString("D2").@Model.RegistrationDate.Month.ToString("D2").@Model.RegistrationDate.Year</td>
+    <td>@if (Model.AboutUser != null)
+        {<span>@Model.AboutUser</span>}
+    else
+    {<span class="dis">Не указано</span>}
+</td>
+</tr>
+</tbody>
+</table>
+
+<hr />
+<p>Находки пользователя</p>
+<div id="findsContainer">
+
+</div>
+
+
+
+@section CSS{
+    <link rel="stylesheet" href="~/css/User.css" />
+}

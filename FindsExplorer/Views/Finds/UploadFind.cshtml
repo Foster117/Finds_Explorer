@@ -1,0 +1,52 @@
+﻿@model FindUploadingModel
+@{
+    ViewData["Title"] = "UploadFind";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="h4 font-weight-normal">Загрузка находки</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="UploadFind" asp-controller="Finds" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label asp-for="Name"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Material"></label>
+                <select name="Material" asp-items="@ViewBag.MaterialsSelectList" class="form-control"></select>
+                <span asp-validation-for="Material" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Period"></label>
+                <select name="Period" asp-items="@ViewBag.PeriodsSelectList" class="form-control"></select>
+                <span asp-validation-for="Period" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description"></label>
+                <textarea asp-for="Description" class="form-control"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>Фото 1</label>
+                <input type="file" name="Photo1" class="form-control-file" />
+                <span asp-validation-for="Photo1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>Фото 2</label>
+                <input type="file" name="Photo2" class="form-control-file" />
+            </div>
+            <div class="form-group">
+                <label>Фото 3</label>
+                <input type="file" name="Photo3" class="form-control-file" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Загрузить" class="btn btn-primary" />
+            </div>
+        </form>
+
+
+    </div>
+</div>
