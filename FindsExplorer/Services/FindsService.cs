@@ -59,6 +59,35 @@ namespace FindsExplorer.Services
             _context.SaveChanges();
         }
 
+        public List<AllFindsModel> GetAllFinds(int offset, int take, out bool isNextVisible)
+        {
+            List<AllFindsModel> findsX2 = (from find in _context.Finds
+                               join m in _context.Materials on find.MaterialId equals m.Id
+                               join p in _context.Periods on find.PeriodId equals p.Id
+                               join u in _context.Users on find.OwnerId equals u.Id
+                               orderby find.UploadDate descending
+                               select new AllFindsModel
+                               {
+                                   Id = find.Id,
+                                   FindName = find.FindName,
+                                   MaterialName = m.MaterialName,
+                                   PeriodName = p.PeriodName,
+                                   OwnerName = u.UserName,
+                                   Preview = find.Preview
+                               }).Skip(offset).Take(take * 2).ToList();
+            List<AllFindsModel> finds = findsX2.Take(take).ToList();
+            List <AllFindsModel> check = findsX2.Skip(take).ToList();
+
+            if (check.Count == 0)
+            {
+                isNextVisible = false;
+            }
+            else
+            {
+                isNextVisible = true;
+            }
+            return finds;
+        }
 
         private void MakeAndSavePreview(IFormFile image, string path, string filename)
         {
@@ -70,7 +99,7 @@ namespace FindsExplorer.Services
         {
             var watermark = Image.FromFile(@"wwwroot\images\watermark_fe.png");
             using Image img = Image.FromStream(image.OpenReadStream());
-            img.Scale(800, 800).AddImageWatermark(watermark, 
+            img.Scale(800, 800).AddImageWatermark(watermark,
                 new ImageWatermarkOptions() { Location = TargetSpot.BottomRight, Opacity = 50 })
                 .SaveAs(path + filename);
             img.Dispose();
@@ -102,6 +131,5 @@ namespace FindsExplorer.Services
             return _context.Periods.Where(_ => _.PeriodName == periodName).FirstOrDefault().Id;
         }
 
-  
     }
 }

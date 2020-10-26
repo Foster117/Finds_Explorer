@@ -22,10 +22,6 @@ namespace FindsExplorer.Services
             List<string> findedNames = _userManager.Users.Where(x => x.UserName.Contains(name))
                 .Select(_ => _.UserName).Skip(offset).Take(take * 2).ToList();
             List<string> check = findedNames.Skip(take).ToList();
-            //var findedNames = _userManager.Users.Where(x => x.UserName.Contains(name))
-            //    .Select(_ => _.UserName).Skip(offset).Take(take).ToList();
-            //var check = _userManager.Users.Where(x => x.UserName.Contains(name))
-            //    .Select(_ => _.UserName).Skip((offset == 0) ? take : offset + take).Take(take).ToList();
             if (check.Count == 0)
             {
                 isNextVisible = false;
@@ -41,8 +37,6 @@ namespace FindsExplorer.Services
         {
             List<string> userNames = _userManager.Users.Select(_ => _.UserName).Skip(offset).Take(take * 2).ToList();
             List<string> check = userNames.Skip(take).ToList();
-            //var userNames = _userManager.Users.Select(_ => _.UserName).Skip(offset).Take(take).ToList();
-            //var check = _userManager.Users.Select(_ => _.UserName).Skip((offset == 0) ? take : offset + take).Take(take).ToList();
             if (check.Count == 0)
             {
                 isNextVisible = false;

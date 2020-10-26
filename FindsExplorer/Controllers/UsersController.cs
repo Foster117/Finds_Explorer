@@ -14,7 +14,7 @@ namespace FindsExplorer.Controllers
 {
     public class UsersController : Controller
     {
-        private const int _allUsersTake = 40;
+        private const int _usersToListQuantity = 40;
         private readonly IUsersService _usersService;
         public UsersController(UserManager<ApplicationUser> userManager)
         {
@@ -28,9 +28,9 @@ namespace FindsExplorer.Controllers
         }
         
         // AJAX
-        public IActionResult GetAllUsers(int offset = 0, int take = _allUsersTake)
+        public IActionResult GetAllUsers(int offset = 0, int take = _usersToListQuantity)
         {
-            if (take < _allUsersTake)
+            if (take < _usersToListQuantity)
             {
                 ViewBag.ErrorMessage = "Недопустимое значение переменной 'take'.";
                 return PartialView("_AjaxError");
@@ -41,16 +41,16 @@ namespace FindsExplorer.Controllers
                 return PartialView("_AjaxError");
             }
             IEnumerable<string> allUserNames = _usersService.GetAllUserNames(offset, take, out bool isNextVisible);
-            ViewBag.AllNamesQuantity = _allUsersTake;
+            ViewBag.AllNamesQuantity = _usersToListQuantity;
             ViewBag.Offset = offset;
             ViewBag.IsNextVisible = isNextVisible;
             return PartialView("_AllUsers", allUserNames);
         }
 
         // AJAX
-        public IActionResult FindByName(string name, int offset = 0, int take = _allUsersTake)
+        public IActionResult FindByName(string name, int offset = 0, int take = _usersToListQuantity)
         {
-            if (take < _allUsersTake)
+            if (take < _usersToListQuantity)
             {
                 ViewBag.ErrorMessage = "Недопустимое значение переменной 'take'.";
                 return PartialView("_AjaxError");
@@ -65,7 +65,7 @@ namespace FindsExplorer.Controllers
                 return RedirectToAction("GetAllUsers");
             }
             IEnumerable<string> findedNames = _usersService.FindByName(name, offset, take, out bool isNextVisible);
-            ViewBag.AllNamesQuantity = _allUsersTake;
+            ViewBag.AllNamesQuantity = _usersToListQuantity;
             ViewBag.LastSearching = name;
             ViewBag.Offset = offset;
             ViewBag.IsNextVisible = isNextVisible;

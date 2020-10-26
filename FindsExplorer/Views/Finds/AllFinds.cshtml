@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewData["Title"] = "Все находки";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="text-center">
+    <h1 class="h4 font-weight-normal">Все находки</h1>
+</div>
+
+
+<div id="loader" class="loader">
+    <img src="~/imagesFE/load_indicator.gif" />
+</div>
+
+<div id="findsList">
+
+</div>
+
+
+
+
+
+
+@section Scripts
+{
+    <script>
+        ///////
+        //AJAX Request on load
+        $(document).ready(function () {
+            $("#loader").css("display", "flex");
+            $.ajax({
+                    url: "@Url.Action("GetAllFinds")",
+                    type: "GET",
+                    data: "offset=" + 0,
+                    success: function (response) {
+                        $("#loader").css("display", "none");
+                        $("#findsList").html(response);
+                    },
+            });
+        })
+    </script>
+}
+
+@section CSS{
+    <link rel="stylesheet" href="~/css/AllUsers.css" />
+}

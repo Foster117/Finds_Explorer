@@ -19,11 +19,37 @@ namespace FindsExplorer.Controllers
         private readonly IFindsService _service;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly IWebHostEnvironment _environment;
+        private const int _findsToListQuantity = 1;
         public FindsController(ApplicationDbContext context, UserManager<ApplicationUser> userManager, IWebHostEnvironment environment)
         {
             _service = new FindsService(context);
             _userManager = userManager;
             _environment = environment;
+        }
+
+        public IActionResult AllFinds()
+        {
+            return View();
+        }
+
+        //AJAX
+        public IActionResult GetAllFinds(int offset = 0, int take = _findsToListQuantity)
+        {
+            if (take < _findsToListQuantity)
+            {
+                ViewBag.ErrorMessage = "Недопустимое значение переменной 'take'.";
+                return PartialView("_AjaxError");
+            }
+            if (offset < 0)
+            {
+                ViewBag.ErrorMessage = "Недопустимое значение переменной 'offset'.";
+                return PartialView("_AjaxError");
+            }
+            List<AllFindsModel> finds = _service.GetAllFinds(offset, take, out bool isNextVisible);
+            ViewBag.AllFindsQuantity = _findsToListQuantity;
+            ViewBag.Offset = offset;
+            ViewBag.IsNextVisible = isNextVisible;
+            return PartialView("_AllFinds", finds);
         }
 
         [Authorize]

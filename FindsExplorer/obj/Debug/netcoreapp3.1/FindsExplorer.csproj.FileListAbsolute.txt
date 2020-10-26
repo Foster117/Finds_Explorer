@@ -577,3 +577,5 @@ C:\Users\Foster117\Desktop\FindsExplorer\FindsExplorer\obj\Debug\netcoreapp3.1\F
 C:\Users\Foster117\Desktop\FindsExplorer\FindsExplorer\obj\Debug\netcoreapp3.1\FindsExplorer.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\Foster117\Desktop\FindsExplorer\FindsExplorer\obj\Debug\netcoreapp3.1\FindsExplorer.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Foster117\Desktop\FindsExplorer\FindsExplorer\obj\Debug\netcoreapp3.1\Razor\Views\Finds\MyFinds.cshtml.g.cs
+C:\Users\Foster117\Desktop\FIndsExplorer\FindsExplorer\obj\Debug\netcoreapp3.1\Razor\Views\Finds\AllFinds.cshtml.g.cs
+C:\Users\Foster117\Desktop\FIndsExplorer\FindsExplorer\obj\Debug\netcoreapp3.1\Razor\Views\Finds\_AllFinds.cshtml.g.cs

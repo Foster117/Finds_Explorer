@@ -9248,11 +9248,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Foster117\\Desktop\\FindsExplorer\\FindsExplorer\\FindsExplorer.csproj",
+      "projectUniqueName": "C:\\Users\\Foster117\\Desktop\\FIndsExplorer\\FindsExplorer\\FindsExplorer.csproj",
       "projectName": "FindsExplorer",
-      "projectPath": "C:\\Users\\Foster117\\Desktop\\FindsExplorer\\FindsExplorer\\FindsExplorer.csproj",
+      "projectPath": "C:\\Users\\Foster117\\Desktop\\FIndsExplorer\\FindsExplorer\\FindsExplorer.csproj",
       "packagesPath": "C:\\Users\\Foster117\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Foster117\\Desktop\\FindsExplorer\\FindsExplorer\\obj\\",
+      "outputPath": "C:\\Users\\Foster117\\Desktop\\FIndsExplorer\\FindsExplorer\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Foster117\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -9340,7 +9340,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
       }
     }
   }
