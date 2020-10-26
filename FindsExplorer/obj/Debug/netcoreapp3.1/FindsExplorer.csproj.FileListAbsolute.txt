@@ -572,3 +572,8 @@ C:\Users\Foster117\Desktop\FindsExplorer\FindsExplorer\obj\Debug\netcoreapp3.1\F
 C:\Users\Foster117\Desktop\FindsExplorer\FindsExplorer\obj\Debug\netcoreapp3.1\FindsExplorer.pdb
 C:\Users\Foster117\Desktop\FindsExplorer\FindsExplorer\obj\Debug\netcoreapp3.1\FindsExplorer.genruntimeconfig.cache
 C:\Users\Foster117\Desktop\FindsExplorer\FindsExplorer\obj\Debug\netcoreapp3.1\Razor\Views\Finds\UploadFind.cshtml.g.cs
+C:\Users\Foster117\Desktop\FindsExplorer\FindsExplorer\bin\Debug\netcoreapp3.1\LazZiya.ImageResize.dll
+C:\Users\Foster117\Desktop\FindsExplorer\FindsExplorer\obj\Debug\netcoreapp3.1\FindsExplorer.csproj.CoreCompileInputs.cache
+C:\Users\Foster117\Desktop\FindsExplorer\FindsExplorer\obj\Debug\netcoreapp3.1\FindsExplorer.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Foster117\Desktop\FindsExplorer\FindsExplorer\obj\Debug\netcoreapp3.1\FindsExplorer.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Foster117\Desktop\FindsExplorer\FindsExplorer\obj\Debug\netcoreapp3.1\Razor\Views\Finds\MyFinds.cshtml.g.cs

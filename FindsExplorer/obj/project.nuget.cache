@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "6rwZd1F27PqdnGCo2iloJ6FNkfac7psAWp3+0bkVwec+2oMyaYn3sxBoNxypKoa9w3aNwav9jblwnfSryPPaZw==",
+  "dgSpecHash": "EVQcb0YBRwN8MyDMH9VaDf3C9vnRIJ+FqSdY+eFWeQE94Jvme/wQ0w8NfO/6HP26MRj70wQlx0LFc0adZpz2yA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Foster117\\Desktop\\FindsExplorer\\FindsExplorer\\FindsExplorer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Foster117\\.nuget\\packages\\hashids.net\\1.3.0\\hashids.net.1.3.0.nupkg.sha512",
-    "C:\\Users\\Foster117\\.nuget\\packages\\imageresizer\\4.2.8\\imageresizer.4.2.8.nupkg.sha512",
     "C:\\Users\\Foster117\\.nuget\\packages\\jquery\\1.8.0\\jquery.1.8.0.nupkg.sha512",
+    "C:\\Users\\Foster117\\.nuget\\packages\\lazziya.imageresize\\3.0.2\\lazziya.imageresize.3.0.2.nupkg.sha512",
     "C:\\Users\\Foster117\\.nuget\\packages\\mailkit\\2.9.0\\mailkit.2.9.0.nupkg.sha512",
     "C:\\Users\\Foster117\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\3.1.9\\microsoft.aspnetcore.cryptography.internal.3.1.9.nupkg.sha512",
     "C:\\Users\\Foster117\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\3.1.9\\microsoft.aspnetcore.cryptography.keyderivation.3.1.9.nupkg.sha512",
@@ -68,6 +68,7 @@
     "C:\\Users\\Foster117\\.nuget\\packages\\microsoft.visualstudio.web.codegenerators.mvc\\3.1.4\\microsoft.visualstudio.web.codegenerators.mvc.3.1.4.nupkg.sha512",
     "C:\\Users\\Foster117\\.nuget\\packages\\microsoft.win32.primitives\\4.3.0\\microsoft.win32.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\Foster117\\.nuget\\packages\\microsoft.win32.registry\\4.5.0\\microsoft.win32.registry.4.5.0.nupkg.sha512",
+    "C:\\Users\\Foster117\\.nuget\\packages\\microsoft.win32.systemevents\\4.5.0\\microsoft.win32.systemevents.4.5.0.nupkg.sha512",
     "C:\\Users\\Foster117\\.nuget\\packages\\mimekit\\2.9.2\\mimekit.2.9.2.nupkg.sha512",
     "C:\\Users\\Foster117\\.nuget\\packages\\netstandard.library\\1.6.1\\netstandard.library.1.6.1.nupkg.sha512",
     "C:\\Users\\Foster117\\.nuget\\packages\\newtonsoft.json\\12.0.2\\newtonsoft.json.12.0.2.nupkg.sha512",
@@ -116,6 +117,7 @@
     "C:\\Users\\Foster117\\.nuget\\packages\\system.diagnostics.diagnosticsource\\4.7.1\\system.diagnostics.diagnosticsource.4.7.1.nupkg.sha512",
     "C:\\Users\\Foster117\\.nuget\\packages\\system.diagnostics.tools\\4.3.0\\system.diagnostics.tools.4.3.0.nupkg.sha512",
     "C:\\Users\\Foster117\\.nuget\\packages\\system.diagnostics.tracing\\4.3.0\\system.diagnostics.tracing.4.3.0.nupkg.sha512",
+    "C:\\Users\\Foster117\\.nuget\\packages\\system.drawing.common\\4.5.1\\system.drawing.common.4.5.1.nupkg.sha512",
     "C:\\Users\\Foster117\\.nuget\\packages\\system.globalization\\4.3.0\\system.globalization.4.3.0.nupkg.sha512",
     "C:\\Users\\Foster117\\.nuget\\packages\\system.globalization.calendars\\4.3.0\\system.globalization.calendars.4.3.0.nupkg.sha512",
     "C:\\Users\\Foster117\\.nuget\\packages\\system.globalization.extensions\\4.3.0\\system.globalization.extensions.4.3.0.nupkg.sha512",
@@ -181,16 +183,5 @@
     "C:\\Users\\Foster117\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
     "C:\\Users\\Foster117\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'ImageResizer 4.2.8' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
-      "libraryId": "ImageResizer",
-      "targetGraphs": [
-        ".NETCoreApp,Version=v3.1"
-      ]
-    }
-  ]
+  "logs": []
 }
