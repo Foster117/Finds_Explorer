@@ -19,7 +19,7 @@ namespace FindsExplorer.Controllers
         private readonly IFindsService _service;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly IWebHostEnvironment _environment;
-        private const int _findsToListQuantity = 1;
+        private const int _findsToListQuantity = 20;
         public FindsController(ApplicationDbContext context, UserManager<ApplicationUser> userManager, IWebHostEnvironment environment)
         {
             _service = new FindsService(context);

@@ -61,6 +61,8 @@ namespace FindsExplorer.Services
 
         public List<AllFindsModel> GetAllFinds(int offset, int take, out bool isNextVisible)
         {
+            IHashIdService hash = new HashIdService();
+
             List<AllFindsModel> findsX2 = (from find in _context.Finds
                                join m in _context.Materials on find.MaterialId equals m.Id
                                join p in _context.Periods on find.PeriodId equals p.Id
@@ -68,7 +70,7 @@ namespace FindsExplorer.Services
                                orderby find.UploadDate descending
                                select new AllFindsModel
                                {
-                                   Id = find.Id,
+                                   Id = hash.Encrypt(find.Id),
                                    FindName = find.FindName,
                                    MaterialName = m.MaterialName,
                                    PeriodName = p.PeriodName,

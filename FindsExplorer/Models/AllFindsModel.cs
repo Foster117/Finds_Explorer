@@ -7,7 +7,7 @@ namespace FindsExplorer.Models
 {
     public class AllFindsModel
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
         public string FindName { get; set; }
         public string OwnerName { get; set; }
         public string PeriodName { get; set; }

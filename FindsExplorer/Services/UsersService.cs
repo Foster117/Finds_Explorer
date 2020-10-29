@@ -19,9 +19,10 @@ namespace FindsExplorer.Services
 
         public IEnumerable<string> FindByName(string name, int offset, int take, out bool isNextVisible)
         {
-            List<string> findedNames = _userManager.Users.Where(x => x.UserName.Contains(name))
+            List<string> findedNamesX2 = _userManager.Users.Where(x => x.UserName.Contains(name))
                 .Select(_ => _.UserName).Skip(offset).Take(take * 2).ToList();
-            List<string> check = findedNames.Skip(take).ToList();
+            List<string> findedNames = findedNamesX2.Take(take).ToList();
+            List<string> check = findedNamesX2.Skip(take).ToList();
             if (check.Count == 0)
             {
                 isNextVisible = false;
@@ -35,8 +36,9 @@ namespace FindsExplorer.Services
 
         public IEnumerable<string> GetAllUserNames(int offset, int take, out bool isNextVisible)
         {
-            List<string> userNames = _userManager.Users.Select(_ => _.UserName).Skip(offset).Take(take * 2).ToList();
-            List<string> check = userNames.Skip(take).ToList();
+            List<string> userNamesX2 = _userManager.Users.Select(_ => _.UserName).Skip(offset).Take(take * 2).ToList();
+            List<string> userNames = userNamesX2.Take(take).ToList();
+            List<string> check = userNamesX2.Skip(take).ToList();
             if (check.Count == 0)
             {
                 isNextVisible = false;
