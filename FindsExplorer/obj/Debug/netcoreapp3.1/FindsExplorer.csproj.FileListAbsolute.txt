@@ -776,3 +776,4 @@ C:\Users\Foster117\Desktop\Finds_Explorer\FindsExplorer\obj\Debug\netcoreapp3.1\
 C:\Users\Foster117\Desktop\Finds_Explorer\FindsExplorer\obj\Debug\netcoreapp3.1\FindsExplorer.dll
 C:\Users\Foster117\Desktop\Finds_Explorer\FindsExplorer\obj\Debug\netcoreapp3.1\FindsExplorer.pdb
 C:\Users\Foster117\Desktop\Finds_Explorer\FindsExplorer\obj\Debug\netcoreapp3.1\FindsExplorer.genruntimeconfig.cache
+C:\Users\Foster117\Desktop\FIndsExplorer\FindsExplorer\obj\Debug\netcoreapp3.1\Razor\Views\Finds\Find.cshtml.g.cs

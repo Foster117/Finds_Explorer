@@ -37,7 +37,7 @@
                 {
                     <tr>
                         <td><img class="imagePreview" src="/FindsPhotos/@item.Preview" width="40" /></td>
-                        <td><a asp-controller="Finds" asp-action="Find" asp-route-name="@item.Id">@item.FindName</a></td>
+                        <td><a asp-controller="Finds" asp-action="Find" asp-route-id="@item.Id">@item.FindName</a></td>
                         <td>@item.MaterialName</td>
                         <td>@item.PeriodName</td>
                         <td><a asp-controller="Users" asp-action="User" asp-route-name="@item.OwnerName">@item.OwnerName</a></td>

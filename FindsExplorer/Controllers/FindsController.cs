@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Threading.Tasks;
 using FindsExplorer.Data;
@@ -60,6 +61,22 @@ namespace FindsExplorer.Controllers
             ViewBag.MaterialsSelectList = new SelectList(materials, materials[0]);
             ViewBag.PeriodsSelectList = new SelectList(periods, periods[0]);
             return View();
+        }
+
+        public IActionResult Find(string id)
+        {
+            if(id == null)
+            {
+                ViewBag.ErrorMessage = "Параметр ID не указан";
+                return View("Error");
+            }
+            GetFindModel find = _service.GetFindById(id);
+            if (find == null)
+            {
+                ViewBag.ErrorMessage = "Неверный параметр ID";
+                return View("Error");
+            }
+            return View(find);
         }
 
         [Authorize]

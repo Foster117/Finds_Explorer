@@ -16,5 +16,6 @@ namespace FindsExplorer.Services
         string[] GetAllPeriods();
         bool CheckMaterial(string material);
         bool CheckPeriod(string period);
+        GetFindModel GetFindById(string id);
     }
 }

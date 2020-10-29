@@ -20,6 +20,35 @@ namespace FindsExplorer.Services
             _context = context;
         }
 
+        public GetFindModel GetFindById(string id)
+        {
+            IHashIdService hash = new HashIdService();
+            int findId = hash.Decrypt(id);
+            GetFindModel findedFind = (from f in _context.Finds
+                             where findId == f.Id
+                             join m in _context.Materials on f.MaterialId equals m.Id
+                             join p in _context.Periods on f.PeriodId equals p.Id
+                             join o in _context.Users on f.OwnerId equals o.Id
+                             select new GetFindModel
+                             {
+                                 Id = hash.Encrypt(f.Id),
+                                 FindName = f.FindName,
+                                 Description = f.Description,
+                                 OwnerName = o.UserName,
+                                 Material = m.MaterialName,
+                                 Period = p.PeriodName,
+                                 UploadDate = f.UploadDate,
+                                 Preview = f.Preview,
+                                 Photo1 = f.Photo1,
+                                 Photo2 = f.Photo2,
+                                 Photo3 = f.Photo3
+                             }).FirstOrDefault();
+            if (findedFind == null)
+            {
+                return null;
+            }
+            return findedFind;
+        }
 
         public void AddFind(FindUploadingModel find, string userId, IWebHostEnvironment environment)
         {
@@ -58,27 +87,26 @@ namespace FindsExplorer.Services
             _context.Finds.Add(newFind);
             _context.SaveChanges();
         }
-
         public List<AllFindsModel> GetAllFinds(int offset, int take, out bool isNextVisible)
         {
             IHashIdService hash = new HashIdService();
 
             List<AllFindsModel> findsX2 = (from find in _context.Finds
-                               join m in _context.Materials on find.MaterialId equals m.Id
-                               join p in _context.Periods on find.PeriodId equals p.Id
-                               join u in _context.Users on find.OwnerId equals u.Id
-                               orderby find.UploadDate descending
-                               select new AllFindsModel
-                               {
-                                   Id = hash.Encrypt(find.Id),
-                                   FindName = find.FindName,
-                                   MaterialName = m.MaterialName,
-                                   PeriodName = p.PeriodName,
-                                   OwnerName = u.UserName,
-                                   Preview = find.Preview
-                               }).Skip(offset).Take(take * 2).ToList();
+                                           join m in _context.Materials on find.MaterialId equals m.Id
+                                           join p in _context.Periods on find.PeriodId equals p.Id
+                                           join u in _context.Users on find.OwnerId equals u.Id
+                                           orderby find.UploadDate descending
+                                           select new AllFindsModel
+                                           {
+                                               Id = hash.Encrypt(find.Id),
+                                               FindName = find.FindName,
+                                               MaterialName = m.MaterialName,
+                                               PeriodName = p.PeriodName,
+                                               OwnerName = u.UserName,
+                                               Preview = find.Preview
+                                           }).Skip(offset).Take(take * 2).ToList();
             List<AllFindsModel> finds = findsX2.Take(take).ToList();
-            List <AllFindsModel> check = findsX2.Skip(take).ToList();
+            List<AllFindsModel> check = findsX2.Skip(take).ToList();
 
             if (check.Count == 0)
             {
