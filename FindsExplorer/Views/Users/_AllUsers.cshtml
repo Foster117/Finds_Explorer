@@ -1,15 +1,9 @@
 ﻿@model List<string>
 
 @{
-    int allNamesQuantity = ViewBag.AllNamesQuantity;
-    int namesInColumnQuantity = allNamesQuantity / 4;
-    int nextOffset = ViewBag.Offset + allNamesQuantity;
-    int prevOffset = ViewBag.Offset - allNamesQuantity;
-    List<string>[] columns = {
-    Model.Skip(0).Take(namesInColumnQuantity).ToList(),
-    Model.Skip(namesInColumnQuantity).Take(namesInColumnQuantity).ToList(),
-    Model.Skip(namesInColumnQuantity * 2).Take(namesInColumnQuantity).ToList(),
-    Model.Skip(namesInColumnQuantity * 3).Take(namesInColumnQuantity).ToList()}; string prevDisabled = null;
+    int nextOffset = ViewBag.Offset + ViewBag.AllNamesQuantity;
+    int prevOffset = ViewBag.Offset - ViewBag.AllNamesQuantity;
+    string prevDisabled = null;
     string nextDisabled = null;
     if (ViewBag.Offset == 0)
     {
@@ -21,30 +15,19 @@
     }
 }
 
-<div class="container">
-    <div class="row">
-        @{
-            for (int i = 0; i < columns.Length; i++)
-            {
-                <div class="col-md-3">
-                    <ul class="list-group list-group-flush">
-                        @{
-                            foreach (var item in columns[i])
-                            {
-                                <li class="list-group-item"> <a asp-action="User" asp-route-name="@item">@item</a></li>
-                            }
-                        }
-                    </ul>
-                </div>
-            }
+<ul class="users-list">
+    @{
+        foreach (string user in Model)
+        {
+            <li class="user-item"><a class="user-item-link" asp-action="User" asp-route-name="@user">@user</a></li>
         }
-    </div>
-</div>
+    }
+</ul>
 
-<div class="form-inline my-lg-4">
-    <div class="btn-group justify-content-center d-inline-block m-auto">
-        <a id="PrevButton" class="btn btn-light @prevDisabled">Предыдущие</a>
-        <a id="NextButton" class="btn btn-light @nextDisabled">Следующие</a>
+<div>
+    <div>
+        <button id="PrevButton" class="@prevDisabled">Предыдущие</button>
+        <button id="NextButton" class="@nextDisabled">Следующие</button>
     </div>
 </div>
 

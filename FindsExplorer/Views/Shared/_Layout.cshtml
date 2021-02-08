@@ -3,55 +3,47 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FindsExplorer - @ViewData["Title"]</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
+    <title>Finds - @ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/css/reset.css" />
+    <link rel="stylesheet" href="~/css/_Layout.css" />
     @RenderSection("Css", required: false)
 </head>
-<body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <img src="~/images/FE_Logo.png" width="30" />
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">FindsExplorer</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <partial name="_LoginPartial" />
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Users" asp-action="AllUsers">Все пользователи</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Finds" asp-action="AllFinds">Все находки</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Finds" asp-action="MyFinds">Мои находки</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Finds" asp-action="UploadFind">Загрузить находку</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+<body class="preload">
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2020 - FindsExplorer - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
+    <header class="header">
+        <menu class="content-container menu-container">
+            <li class="logo-container">
+                <a class="finds-logo" asp-controller="Home" asp-action="Index">
+                    <p class="logo-text">Finds</p>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a class="menu-item-text" asp-controller="Users" asp-action="AllUsers">Все пользователи</a>
+            </li>
+            <li class="menu-item">
+                <a class="menu-item-text" asp-area="" asp-controller="Finds" asp-action="AllFinds">Все находки</a>
+            </li>
+            <li class="menu-item">
+                <a class="menu-item-text" asp-controller="Finds" asp-action="MyFinds">Мои находки</a>
+            </li>
+            <li class="menu-item">
+                <a class="menu-item-text" asp-controller="Finds" asp-action="UploadFind">Добавить находку</a>
+            </li>
+            <partial name="_LoginPartial" />
+        </menu>
+    </header>
+
+    <main class="main">
+        @RenderBody()
+    </main>
+
+    <footer class="content-container footer">
+        <p class="footer-text">
+            &copy; @DateTime.Now.Year - Finds. Pass: Ff-117
+        </p>
     </footer>
-     <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <script src="~/js/fix-transitions.js"></script>
     @RenderSection("Scripts", required: false)
 </body>
 </html>

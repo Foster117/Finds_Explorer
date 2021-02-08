@@ -14,7 +14,7 @@ namespace FindsExplorer.Controllers
 {
     public class UsersController : Controller
     {
-        private const int _usersToListQuantity = 40;
+        private const int _usersToListQuantity = 80;
         private readonly IUsersService _usersService;
         public UsersController(UserManager<ApplicationUser> userManager)
         {

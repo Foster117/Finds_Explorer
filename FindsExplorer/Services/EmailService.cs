@@ -28,7 +28,7 @@ namespace FindsExplorer.Services
                 //await client.ConnectAsync("smtp.gmail.com", 465, true);
                 //await client.AuthenticateAsync("Finds.Explorer@gmail.com", "fbokzspdyryhbibe");
                 await client.ConnectAsync("smtp.ukr.net", 465, true);
-                await client.AuthenticateAsync("finds.explorer@ukr.net", "6TRcr5lvx4e7GB9j");
+                await client.AuthenticateAsync("finds.explorer@ukr.net", "pSewsUYMIuXJciIL");
                 await client.SendAsync(emailMessage);
 
                 await client.DisconnectAsync(true);

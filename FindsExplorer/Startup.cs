@@ -34,7 +34,7 @@ namespace FindsExplorer
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddDefaultIdentity<ApplicationUser>(options => {
-                //options.SignIn.RequireConfirmedAccount = true;
+                options.SignIn.RequireConfirmedAccount = true;
                 options.User.RequireUniqueEmail = true;
                 options.User.AllowedUserNameCharacters = " _.-@()01234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZÀàÁáÂâÃãÄäÅåÆæÇçÈèÉéÊêËëÌìÍíÎîÏïĞğÑñÒòÓóÔôÕõÖö×÷ØøÙùÚúÛûÜüİıŞşßÿ";
             })
